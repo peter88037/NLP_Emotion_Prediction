@@ -32,11 +32,10 @@ prediction.csv:
 	#evaluate the probabilities of all possible sentences
 	$(KENLM)/query -s lm.bin < corpus-test.txt> test.prob
 	#sort & output the prediction for every 40 lines
-	python2 test.py > $@
+	python2 output.py > $@
 ###
 
-clean:
-	deactivate     
+clean: 
 	rm -rf lm*.arpa lm*.bin test*.prob prediction*.csv test*.prob
 clean-all: clean
 	rm -rf corpus-train.txt corpus-test.txt *.cache
